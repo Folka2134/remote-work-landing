@@ -168,8 +168,12 @@ function App() {
         </nav>
         <main>
           <div className="flex flex-col">
-            <img src={mobileCover} alt="mobile cover" />
-            <div className="flex flex-col justify-center items-center p-12">
+            <img
+              className=" self-center lg:px-24"
+              src={mobileCover}
+              alt="mobile cover"
+            />
+            <div className="flex flex-col justify-center items-center p-12 md:p-24 lg:px-52 xl:px-72">
               <h1 className="text-4xl font-bold">Make remote work</h1>
               <p className="text-lg text-gray-600 text-center py-8">
                 Get your team in sync, no matter your location. Streamline
