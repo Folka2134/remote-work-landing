@@ -1,8 +1,12 @@
+import { useState } from "react";
+
 import "./App.css";
 
 import mobileCover from "./assets/image-hero-mobile.png";
 
 function App() {
+  const [expandMenu, setExpandMenu] = useState(false);
+
   return (
     <div className="App">
       <div>
@@ -13,141 +17,154 @@ function App() {
               fill="#151515"
             />
           </svg>
-          <svg width="32" height="18" xmlns="http://www.w3.org/2000/svg">
-            <g fill="#151515" fill-rule="evenodd">
+          <svg
+            width="32"
+            height="18"
+            xmlns="http://www.w3.org/2000/svg"
+            onClick={() => setExpandMenu(!expandMenu)}
+          >
+            <g fill="#151515" fillRule="evenodd">
               <path d="M0 0h32v2H0zM0 8h32v2H0zM0 16h32v2H0z" />
             </g>
           </svg>
-          <div className="flex h-screen w-full absolute top-0 left-0">
-            <div className="bg-black bg-opacity-50 flex-1"></div>
-            <div className="bg-white w-72 p-6">
-              <div className="flex justify-end ">
-                <svg
-                  className="right-0"
-                  width="26"
-                  height="26"
-                  xmlns="http://www.w3.org/2000/svg"
+          {expandMenu && (
+            <div className="flex h-screen w-full absolute top-0 left-0">
+              <div
+                className="bg-black bg-opacity-50 flex-1"
+                onClick={() => setExpandMenu(!expandMenu)}
+              ></div>
+              <div className="bg-white w-72 p-6">
+                <div
+                  className="flex justify-end"
+                  onClick={() => setExpandMenu(!expandMenu)}
                 >
-                  <g fill="#151515" fill-rule="evenodd">
-                    <path d="m2.393.98 22.628 22.628-1.414 1.414L.979 2.395z" />
-                    <path d="M.98 23.607 23.609.979l1.414 1.414L2.395 25.021z" />
-                  </g>
-                </svg>
+                  <svg
+                    className="cursor-pointer"
+                    width="26"
+                    height="26"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <g fill="#151515" fillRule="evenodd">
+                      <path d="m2.393.98 22.628 22.628-1.414 1.414L.979 2.395z" />
+                      <path d="M.98 23.607 23.609.979l1.414 1.414L2.395 25.021z" />
+                    </g>
+                  </svg>
+                </div>
+                <ul className="flex flex-col py-8 text-gray-600">
+                  <li className="text-xl  my-2 cursor-pointer">
+                    <div className="flex items-center hover:text-black">
+                      <p>Features</p>
+                      <span className="ml-4 pt-1">
+                        <svg
+                          width="10"
+                          height="6"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            stroke="#686868"
+                            strokeWidth="1.5"
+                            fill="none"
+                            d="m1 1 4 4 4-4"
+                          />
+                        </svg>
+                      </span>
+                    </div>
+                    <div className="flex flex-col items-center w-full py-4 px-10">
+                      <div className="flex items-center w-full py-2 hover:text-black">
+                        <svg
+                          className="mr-4"
+                          width="14"
+                          height="16"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M14 3v12a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1h1V1a1 1 0 1 1 2 0v1h2V1a1 1 0 1 1 2 0v1h2V1a1 1 0 0 1 2 0v1h1a1 1 0 0 1 1 1Zm-2 3H2v1h10V6Zm0 3H2v1h10V9Zm0 3H2v1h10v-1Z"
+                            fill="#726CEE"
+                          />
+                        </svg>
+                        Todo List
+                      </div>
+                      <div className="flex items-center w-full py-2 hover:text-black">
+                        <svg
+                          className="mr-4"
+                          width="16"
+                          height="16"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M12.667 8.667h-4v4h4v-4ZM11.334 0v1.333H4.667V0h-2v1.333h-1C.75 1.333 0 2.083 0 3v11.333C0 15.25.75 16 1.667 16h12.667C15.25 16 16 15.25 16 14.333V3c0-.917-.75-1.667-1.666-1.667h-1V0h-2Zm3 14.333H1.667V5.5h12.667v8.833Z"
+                            fill="#4BB1DA"
+                          />
+                        </svg>
+                        Calender
+                      </div>
+                      <div className="flex items-center w-full py-2 hover:text-black">
+                        <svg
+                          className="mr-4"
+                          width="13"
+                          height="17"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M6.408 13.916c-3.313 0-6-1.343-6-3 0-.612.371-1.18 1-1.654V7.916a5 5 0 0 1 3.041-4.6 2 2 0 0 1 3.507-1.664 2 2 0 0 1 .411 1.664 5.002 5.002 0 0 1 3.041 4.6v1.346c.629.474 1 1.042 1 1.654 0 1.657-2.687 3-6 3Zm0 1c.694 0 1.352-.066 1.984-.16.004.054.016.105.016.16a2 2 0 0 1-4 0c0-.055.012-.106.016-.16.633.094 1.29.16 1.984.16Z"
+                            fill="#EDD556"
+                          />
+                        </svg>
+                        Reminders
+                      </div>
+                      <div className="flex items-center w-full py-2 hover:text-black">
+                        <svg
+                          className="mr-4"
+                          width="16"
+                          height="16"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0Zm0 2.133a5.867 5.867 0 1 0 0 11.734A5.867 5.867 0 0 0 8 2.133ZM8 3.2a4.8 4.8 0 1 1 0 9.6 4.8 4.8 0 0 1 0-9.6Zm-.533 2.667a.533.533 0 0 0-.534.533v2.133c0 .295.24.534.534.534h3.2a.533.533 0 0 0 0-1.067H8V6.4a.533.533 0 0 0-.533-.533Z"
+                            fill="#8E4CB6"
+                          />
+                        </svg>
+                        Planning
+                      </div>
+                    </div>
+                  </li>
+                  <li className="text-xl hover:text-black my-2 cursor-pointer">
+                    <div className="flex items-center">
+                      <p>Company</p>
+                      <span className="ml-4 pt-1">
+                        <svg
+                          width="10"
+                          height="6"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            stroke="#686868"
+                            strokeWidth="1.5"
+                            fill="none"
+                            d="m1 1 4 4 4-4"
+                          />
+                        </svg>
+                      </span>
+                    </div>
+                  </li>
+                  <li className="text-xl hover:text-black my-2 cursor-pointer">
+                    Careers
+                  </li>
+                  <li className="text-xl hover:text-black my-2 cursor-pointer">
+                    About
+                  </li>
+                </ul>
+                <ul className="flex flex-col items-center text-gray-600">
+                  <li className="text-lg hover:text-black py-4 cursor-pointer">
+                    Login
+                  </li>
+                  <li className="w-full text-lg text-center hover:text-black border-2 border-gray-600 hover:border-black py-3 rounded-xl cursor-pointer">
+                    Register
+                  </li>
+                </ul>
               </div>
-              <ul className="flex flex-col py-8 text-gray-600">
-                <li className="text-xl  my-2 cursor-pointer">
-                  <div className="flex items-center hover:text-black">
-                    <p>Features</p>
-                    <span className="ml-4 pt-1">
-                      <svg
-                        width="10"
-                        height="6"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          stroke="#686868"
-                          stroke-width="1.5"
-                          fill="none"
-                          d="m1 1 4 4 4-4"
-                        />
-                      </svg>
-                    </span>
-                  </div>
-                  <div className="flex flex-col items-center w-full py-4 px-10">
-                    <div className="flex items-center w-full py-2 hover:text-black">
-                      <svg
-                        className="mr-4"
-                        width="14"
-                        height="16"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M14 3v12a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1h1V1a1 1 0 1 1 2 0v1h2V1a1 1 0 1 1 2 0v1h2V1a1 1 0 0 1 2 0v1h1a1 1 0 0 1 1 1Zm-2 3H2v1h10V6Zm0 3H2v1h10V9Zm0 3H2v1h10v-1Z"
-                          fill="#726CEE"
-                        />
-                      </svg>
-                      Todo List
-                    </div>
-                    <div className="flex items-center w-full py-2 hover:text-black">
-                      <svg
-                        className="mr-4"
-                        width="16"
-                        height="16"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M12.667 8.667h-4v4h4v-4ZM11.334 0v1.333H4.667V0h-2v1.333h-1C.75 1.333 0 2.083 0 3v11.333C0 15.25.75 16 1.667 16h12.667C15.25 16 16 15.25 16 14.333V3c0-.917-.75-1.667-1.666-1.667h-1V0h-2Zm3 14.333H1.667V5.5h12.667v8.833Z"
-                          fill="#4BB1DA"
-                        />
-                      </svg>
-                      Calender
-                    </div>
-                    <div className="flex items-center w-full py-2 hover:text-black">
-                      <svg
-                        className="mr-4"
-                        width="13"
-                        height="17"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M6.408 13.916c-3.313 0-6-1.343-6-3 0-.612.371-1.18 1-1.654V7.916a5 5 0 0 1 3.041-4.6 2 2 0 0 1 3.507-1.664 2 2 0 0 1 .411 1.664 5.002 5.002 0 0 1 3.041 4.6v1.346c.629.474 1 1.042 1 1.654 0 1.657-2.687 3-6 3Zm0 1c.694 0 1.352-.066 1.984-.16.004.054.016.105.016.16a2 2 0 0 1-4 0c0-.055.012-.106.016-.16.633.094 1.29.16 1.984.16Z"
-                          fill="#EDD556"
-                        />
-                      </svg>
-                      Reminders
-                    </div>
-                    <div className="flex items-center w-full py-2 hover:text-black">
-                      <svg
-                        className="mr-4"
-                        width="16"
-                        height="16"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0Zm0 2.133a5.867 5.867 0 1 0 0 11.734A5.867 5.867 0 0 0 8 2.133ZM8 3.2a4.8 4.8 0 1 1 0 9.6 4.8 4.8 0 0 1 0-9.6Zm-.533 2.667a.533.533 0 0 0-.534.533v2.133c0 .295.24.534.534.534h3.2a.533.533 0 0 0 0-1.067H8V6.4a.533.533 0 0 0-.533-.533Z"
-                          fill="#8E4CB6"
-                        />
-                      </svg>
-                      Planning
-                    </div>
-                  </div>
-                </li>
-                <li className="text-xl hover:text-black my-2 cursor-pointer">
-                  <div className="flex items-center">
-                    <p>Company</p>
-                    <span className="ml-4 pt-1">
-                      <svg
-                        width="10"
-                        height="6"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          stroke="#686868"
-                          stroke-width="1.5"
-                          fill="none"
-                          d="m1 1 4 4 4-4"
-                        />
-                      </svg>
-                    </span>
-                  </div>
-                </li>
-                <li className="text-xl hover:text-black my-2 cursor-pointer">
-                  Careers
-                </li>
-                <li className="text-xl hover:text-black my-2 cursor-pointer">
-                  About
-                </li>
-              </ul>
-              <ul className="flex flex-col items-center text-gray-600">
-                <li className="text-lg hover:text-black py-4 cursor-pointer">
-                  Login
-                </li>
-                <li className="w-full text-lg text-center hover:text-black border-2 border-gray-600 hover:border-black py-3 rounded-xl cursor-pointer">
-                  Register
-                </li>
-              </ul>
             </div>
-          </div>
+          )}
         </nav>
         <main>
           <div className="flex flex-col">
@@ -179,7 +196,7 @@ function App() {
                 <path
                   d="M5 10a5 5 0 1 1 0 10 5 5 0 0 1 0-10ZM15 0a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm16.515 18.34V9.964c.226-.293.5-.513.824-.66.324-.146.689-.22 1.095-.22.587 0 1.058.205 1.412.614.353.408.53.945.53 1.608v7.034h3.658v-7.543a7.069 7.069 0 0 0-.045-.787c.241-.293.527-.52.858-.683.331-.162.7-.242 1.107-.242.587 0 1.057.204 1.411.613.354.408.53.945.53 1.608v7.034h3.659v-7.543c0-1.435-.433-2.615-1.299-3.54-.865-.926-1.976-1.389-3.33-1.389-.783 0-1.506.147-2.168.44a4.968 4.968 0 0 0-1.716 1.25 4.316 4.316 0 0 0-1.524-1.239 4.504 4.504 0 0 0-2.021-.45c-.557 0-1.088.084-1.592.254-.505.17-.967.424-1.389.763V6.1h-3.658v12.24h3.658Zm23.168.231c.993 0 1.885-.146 2.675-.44.79-.292 1.562-.763 2.315-1.41l-2.416-2.199c-.286.293-.632.52-1.039.683a3.63 3.63 0 0 1-1.355.243c-.692 0-1.294-.182-1.806-.544a3.22 3.22 0 0 1-1.13-1.4h8.514v-.926a7.74 7.74 0 0 0-.452-2.672c-.301-.825-.719-1.531-1.253-2.117A5.875 5.875 0 0 0 56.828 6.4a5.71 5.71 0 0 0-2.416-.509c-.873 0-1.69.162-2.45.486a6.032 6.032 0 0 0-1.976 1.342 6.357 6.357 0 0 0-1.321 2.025 6.418 6.418 0 0 0-.486 2.487c0 .88.17 1.709.508 2.488a6.378 6.378 0 0 0 1.378 2.024 6.268 6.268 0 0 0 2.066 1.343 6.717 6.717 0 0 0 2.552.485Zm2.167-7.682h-4.99c.18-.617.49-1.095.926-1.434.436-.34.956-.51 1.558-.51.587 0 1.103.178 1.547.533.444.355.764.825.96 1.411Zm11.268 7.682c.994 0 1.885-.146 2.676-.44.79-.292 1.562-.763 2.314-1.41l-2.416-2.199c-.286.293-.632.52-1.039.683a3.63 3.63 0 0 1-1.354.243c-.693 0-1.295-.182-1.807-.544a3.22 3.22 0 0 1-1.129-1.4h8.513v-.926a7.74 7.74 0 0 0-.452-2.672c-.3-.825-.718-1.531-1.253-2.117A5.875 5.875 0 0 0 70.263 6.4a5.71 5.71 0 0 0-2.416-.509c-.873 0-1.69.162-2.45.486a6.032 6.032 0 0 0-1.976 1.342 6.357 6.357 0 0 0-1.32 2.025 6.418 6.418 0 0 0-.486 2.487c0 .88.17 1.709.508 2.488a6.378 6.378 0 0 0 1.377 2.024 6.268 6.268 0 0 0 2.066 1.343 6.717 6.717 0 0 0 2.552.485Zm2.168-7.682h-4.99c.18-.617.489-1.095.925-1.434.437-.34.956-.51 1.558-.51.587 0 1.103.178 1.547.533.444.355.764.825.96 1.411Zm11.335 7.613c.346 0 .775-.035 1.287-.104a7.37 7.37 0 0 0 1.265-.266V15.1c-.301.092-.58.158-.836.196a5.456 5.456 0 0 1-.813.058c-.587 0-.997-.112-1.23-.335-.234-.224-.35-.606-.35-1.146v-4.65h3.342V6.1h-3.342V2.143l-3.658.81V6.1H74.87v3.123h2.416v5.392c0 1.28.365 2.248 1.095 2.904.73.655 1.81.983 3.24.983Zm6.042-13.225c.462 0 .853-.156 1.172-.466.318-.31.478-.7.478-1.173 0-.463-.16-.852-.478-1.166A1.604 1.604 0 0 0 87.663 2c-.463 0-.856.157-1.179.472A1.563 1.563 0 0 0 86 3.638c0 .472.161.863.484 1.173.323.31.716.466 1.179.466Z"
                   fill="#ADADAD"
-                  fill-rule="evenodd"
+                  fillRule="evenodd"
                 />
               </svg>
               <svg width="83" height="24" xmlns="http://www.w3.org/2000/svg">
