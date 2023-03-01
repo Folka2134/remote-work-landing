@@ -18,27 +18,81 @@ function App() {
               <path d="M0 0h32v2H0zM0 8h32v2H0zM0 16h32v2H0z" />
             </g>
           </svg>
-          {/* <div>
-            <ul>
-              <li>Features</li>
-              <li>Company</li>
-              <li>Careers</li>
-              <li>About</li>
-            </ul>
-            <ul>
-              <li>Login</li>
-            </ul>
-            <ul>
-              <li>Register</li>
-            </ul>
-          </div> */}
+          <div className="flex h-screen w-full absolute top-0 left-0">
+            <div className="bg-black bg-opacity-50 flex-1"></div>
+            <div className="bg-white w-72 p-6">
+              <div className="flex justify-end ">
+                <svg
+                  className="right-0"
+                  width="26"
+                  height="26"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g fill="#151515" fill-rule="evenodd">
+                    <path d="m2.393.98 22.628 22.628-1.414 1.414L.979 2.395z" />
+                    <path d="M.98 23.607 23.609.979l1.414 1.414L2.395 25.021z" />
+                  </g>
+                </svg>
+              </div>
+              <ul className="flex flex-col py-8 text-gray-600">
+                <li className="flex items-center text-xl hover:text-black my-2 cursor-pointer">
+                  <p>Features</p>
+                  <span className="ml-4 pt-1">
+                    <svg
+                      width="10"
+                      height="6"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        stroke="#686868"
+                        stroke-width="1.5"
+                        fill="none"
+                        d="m1 1 4 4 4-4"
+                      />
+                    </svg>
+                  </span>
+                </li>
+                <li className="flex items-center text-xl hover:text-black my-2 cursor-pointer">
+                  <p>Company</p>
+                  <span className="ml-4 pt-1">
+                    <svg
+                      width="10"
+                      height="6"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        stroke="#686868"
+                        stroke-width="1.5"
+                        fill="none"
+                        d="m1 1 4 4 4-4"
+                      />
+                    </svg>
+                  </span>
+                </li>
+                <li className="text-xl hover:text-black my-2 cursor-pointer">
+                  Careers
+                </li>
+                <li className="text-xl hover:text-black my-2 cursor-pointer">
+                  About
+                </li>
+              </ul>
+              <ul className="flex flex-col items-center text-gray-600">
+                <li className="text-lg hover:text-black py-4 cursor-pointer">
+                  Login
+                </li>
+                <li className="w-full text-lg text-center hover:text-black border-2 border-gray-600 hover:border-black py-3 rounded-xl cursor-pointer">
+                  Register
+                </li>
+              </ul>
+            </div>
+          </div>
         </nav>
         <main>
           <div className="flex flex-col">
             <img src={mobileCover} alt="mobile cover" />
             <div className="flex flex-col justify-center items-center p-12">
               <h1 className="text-4xl font-bold">Make remote work</h1>
-              <p className="text-lg text-gray-600 text-center py-6">
+              <p className="text-lg text-gray-600 text-center py-8">
                 Get your team in sync, no matter your location. Streamline
                 processes, create team rituals, and watch productivity soar.
               </p>
